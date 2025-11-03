@@ -1,0 +1,195 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kelas - [Nama Kelas]</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Web Kelas [KELAS 6 ZUBAIR BIN AWAM 2025/2026]</h1>
+        
+        <nav>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#jadwal">Jadwal</a></li>
+                <li><a href="#materi">Materi</a></li>
+                <li><a href="#tugas">Tugas</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="beranda">
+        <h2>Beranda</h2>
+        <p>Selamat datang di web kelas kami. Di sini Anda bisa mengakses jadwal, materi, dan tugas.</p>
+        <img src="https://via.placeholder.com/800x400?text=Gambar+Kelas" alt="Gambar Kelas" style="width:100%; max-width:800px;">
+    </section>
+
+    <section id="jadwal">
+        <h2>Jadwal Kelas</h2>
+        <table>
+            <tr>
+                <th>Hari</th>
+                <th>Waktu</th>
+                <th>Mata Pelajaran</th>
+            </tr>
+            <tr>
+                <td>Senin</td>
+                <td>08:00 - 14:00</td>
+                <td>MATEMATIKA, PANCASILA, BTQ</td>
+            </tr>
+            <tr>
+                <td>Selasa</td>
+                <td>10:00 - 14:00</td>
+                <td>OLAHRAGA, AGAMA, IPAS</td>
+            </tr>
+            <tr>
+                <td>Rabu</td>
+                <td>13:00 - 14:00</td>
+                <td>MATEMATIKA, BAHASA INDONESIA, BAHASA INGGRIS BarProp.</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="materi">
+        <h2>Materi Pembelajaran</h2>
+        <ul>
+            <li><a href="materi1.pdf" target="_blank">Materi 1: Pengenalan Matematika</a></li>
+            <li><a href="materi2.pdf" target="_blank">Materi 2: Bahasa Indonesia </a></li>
+            <li><a href="materi3.pdf" target="_blank">Materi 3: Penegtahuan alam dan sosial</a></li>
+        </ul>
+        <p>Upload materi baru: <input type="file" id="uploadMateri"></p>
+    </section>
+        </div>
+        <button onclick="addTask()">Tambah Tugas</button>
+    </section>
+
+    <section id="kontak">
+        <h2>Kontak Guru</h2>
+        <p>Email: guru@sekolah.com</p>
+        <p>Telepon: 08123456789</p>
+        <form>
+            <label for="nama">Nama:</label><br>
+            <input type="text" id="nama" name="nama"><br>
+            <label for="pesan">Pesan:</label><br>
+            <textarea id="pesan" name="pesan"></textarea><br>
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025/2026 Web Kelas. Dibuat dengan HTML/CSS/JS.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+input, textarea, button {
+    padding: 8px;
+    margin: 5px 0;
+    width: 100%;
+    max-width: 400px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+function addTask() {
+    const task = prompt("Masukkan tugas baru:");
+    if (task) {
+        const div = document.getElementById("taskList");
+        const p = document.createElement("p");
+        p.textContent = task;
+        div.appendChild(p);
+    }
+}
+
+// Fungsi sederhana untuk scroll ke section
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+    });
+});
